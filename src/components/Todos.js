@@ -6,17 +6,17 @@ import { v4 as uuidv4 } from "uuid"
 
 const initialTodos = [
   {
-    text: "Faires des courses",
+    text: "Réviser ES6 classes",
     isCompleted: true,
     id: "1b688c51-e990-4ce3-95a5-9018cf81d23d",
   },
   {
-    text: "Réviser ES6 classes",
+    text: "Réviser ReactJSX",
     isCompleted: false,
     id: "efc6331d-7ca2-49a6-b014-378b8280b33d",
   },
   {
-    text: "Aroser les plantes",
+    text: "S'étirer et méditer",
     isCompleted: false,
     id: "9e60d353-cd72-40bb-97e6-5841e51635c0",
   },
