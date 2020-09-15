@@ -5,10 +5,16 @@ import AddTodoForm from "./AddTodoForm"
 import { v4 as uuidv4 } from "uuid"
 
 const initialTodos = [
+
   {
-    text: "Réviser ES6 classes",
+    text: "Créer React App ToDos ",
     isCompleted: true,
     id: "1b688c51-e990-4ce3-95a5-9018cf81d23d",
+  },
+  {
+    text: "Réviser ES6 classes",
+    isCompleted: false,
+    id: "1b688c51-e990-4ce3-95a5-9018cf81d23z",
   },
   {
     text: "Réviser ReactJSX",
@@ -23,7 +29,8 @@ const initialTodos = [
 ]
 
 const Todos = () => {
-  const [todos, setTodos] = useState(initialTodos)
+  const [todos, setTodos] = useState(
+    () => JSON.parse(localStorage.getItem(`myTodoList`)) || initialTodos)
   const [filter, setFilter] = useState("all")
 
   const addTodo = (text) => {
@@ -61,9 +68,15 @@ const Todos = () => {
   })
 
   const completedCount = todos.filter((el) => !el.isCompleted).length
+
 useEffect(() => {
   document.title = completedCount ? `Vous avez ${completedCount}` : `Que devez-vous faire aujourd'hui ?`
 }, [completedCount])
+
+useEffect(() => {
+  localStorage.setItem(`myTodoList`, JSON.stringify(todos))
+}, [todos])
+
   return (
     <main>
       <h2 className="text-center">
