@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import TodosList from "./TodosList"
 import SelectTodos from "./SelectTodos"
 import AddTodoForm from "./AddTodoForm"
@@ -60,7 +60,10 @@ const Todos = () => {
     return true
   })
 
-  const completedCount = todos.filter((el) => el.isCompleted).length
+  const completedCount = todos.filter((el) => !el.isCompleted).length
+useEffect(() => {
+  document.title = completedCount ? `Vous avez ${completedCount}` : `Que devez-vous faire aujourd'hui ?`
+}, [completedCount])
   return (
     <main>
       <h2 className="text-center">
