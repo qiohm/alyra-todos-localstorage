@@ -70,7 +70,7 @@ const Todos = () => {
   const completedCount = todos.filter((el) => !el.isCompleted).length
 
 useEffect(() => {
-  document.title = completedCount ? `Vous avez ${completedCount}` : `Que devez-vous faire aujourd'hui ?`
+  document.title = completedCount ? `A accomplir : ${completedCount}`  : `Que devez-vous faire aujourd'hui ?`
 }, [completedCount])
 
 useEffect(() => {
